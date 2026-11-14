@@ -1,0 +1,46 @@
+{
+  "entry": "/package",
+  "documents": [
+    {
+      "id": "test",
+      "path": "test.xml",
+      "format": "xml",
+      "file": "00.raw",
+      "task": "task-1",
+      "batch": "batch-local",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "item",
+      "path": "items/item.xml",
+      "format": "xml",
+      "file": "01.raw",
+      "task": "task-1",
+      "batch": "batch-local",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "stimulus",
+      "path": "stimulus.xml",
+      "format": "xml",
+      "file": "02.raw",
+      "task": "task-1",
+      "batch": "batch-local",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    }
+  ],
+  "changedDocument": "item",
+  "replaceFrom": "Choice A",
+  "replaceTo": "Choice A revised",
+  "expectedIds": [
+    "test-a:ref-1",
+    "test-a:ref-2"
+  ],
+  "transmissionWindow": [
+    "2026-10-31T23:00:00Z",
+    "2026-11-01T01:00:00Z"
+  ]
+}

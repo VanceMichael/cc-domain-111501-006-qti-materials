@@ -1,0 +1,1 @@
+<qti-assessment-test identifier="test-a" title="Training"><qti-test-part identifier="part"><qti-assessment-section identifier="section" title="Main" visible="true"><qti-assessment-item-ref identifier="ref-1" href="items/item.xml"/><qti-assessment-item-ref identifier="ref-2" href="items/item.xml"/></qti-assessment-section></qti-test-part></qti-assessment-test>
