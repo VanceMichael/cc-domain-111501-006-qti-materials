@@ -1,0 +1,79 @@
+{
+  "entry": "/package",
+  "documents": [
+    {
+      "id": "test",
+      "path": "test.xml",
+      "format": "xml",
+      "file": "10.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "retest",
+      "path": "nested/retest.xml",
+      "format": "xml",
+      "file": "11.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "item-a",
+      "path": "items/item-a.xml",
+      "format": "xml",
+      "file": "12.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "item-b",
+      "path": "items/item-b.xml",
+      "format": "xml",
+      "file": "13.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "item-c",
+      "path": "items/custom.xml",
+      "format": "xml",
+      "file": "14.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "stimulus",
+      "path": "stimulus/shared.xml",
+      "format": "xml",
+      "file": "15.raw",
+      "task": "task-2",
+      "batch": "batch-extended",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    }
+  ],
+  "changedDocument": "item-a",
+  "replaceFrom": "Alpha",
+  "replaceTo": "Alpha revised",
+  "expectedIds": [
+    "test-x:r-1",
+    "test-x:r-2",
+    "test-x:r-3",
+    "test-x:r-4",
+    "test-y:s-1"
+  ],
+  "transmissionWindow": [
+    "2026-10-31T23:00:00Z",
+    "2026-11-01T01:00:00Z"
+  ]
+}

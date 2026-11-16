@@ -1,0 +1,52 @@
+{
+  "entry": "/package",
+  "documents": [
+    {
+      "id": "test",
+      "path": "test.xml",
+      "format": "xml",
+      "file": "20.raw",
+      "task": "task-3",
+      "batch": "batch-boundary",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "item",
+      "path": "item.xml",
+      "format": "xml",
+      "file": "21.raw",
+      "task": "task-3",
+      "batch": "batch-boundary",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "broken",
+      "path": "broken.xml",
+      "format": "xml",
+      "file": "22.raw",
+      "task": "task-3",
+      "batch": "batch-boundary",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    },
+    {
+      "id": "empty",
+      "path": "empty.xml",
+      "format": "xml",
+      "file": "23.raw",
+      "task": "task-3",
+      "batch": "batch-boundary",
+      "serviceRoot": "/raw/",
+      "revision": 1
+    }
+  ],
+  "expectedIds": [
+    "test-b:r-1"
+  ],
+  "transmissionWindow": [
+    "2026-10-31T23:00:00Z",
+    "2026-11-01T01:00:00Z"
+  ]
+}

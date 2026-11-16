@@ -18,7 +18,9 @@ build逐个检查src、simulator、scripts、test、acceptance内的ESM语法；
 
 `collect({base,repository,mode})`是采集入口，默认旧预览模式；`mode:'managed'`供上层请求结构化接入。返回值延续imported和complete，complete只能表示协议下已核对的完成状态，不可由HTTP200或预览成功推断。`Repository`中的records、evidence、cursors、notes是现有持久化接口，可为业务一致性扩展结构及事务；旧记录和原始字节应继续可读。
 
-`createSource({scenario:'legacy'|'feature'})`创建本地来源，提供base/state/requests/close；legacy只含首个文件，feature开放整组关联资料。测试用state.round、failDoc、missingDoc驱动来源变动，采集端只经HTTP观察这些变化，不读取模拟器内部数据。详细字段及公开行为矩阵见协议。
+managed模式分抓取、解释、解析、提交四个落盘阶段：records保存试卷内引用实例（id=testId:refId，含分节位置与题目范围内的responses），去重后的试卷、分节、题目、共用材料对象保存在entities桶并带解释版本历史，files索引记录每份资料的修订、ETag与解释状态，缺件、未解析与外部材料经notes给出具体位置和受影响引用。可选hooks（afterRetain/afterInterpret/beforeDerive）用于边界终止与恢复演练。未支持的自定义交互原样留存在unparsed并标明未解析，不执行response-processing。
+
+`createSource({scenario:'legacy'|'feature'|'extended'|'boundary'})`创建本地来源，提供base/state/requests/close；legacy只含首个文件，feature开放整组关联资料，extended含共享题目、重复选项编号、自定义交互与外部材料，boundary含畸形与空文件。测试用state.round、failDoc、missingDoc、dropDoc驱动来源变动，采集端只经HTTP观察这些变化，不读取模拟器内部数据。详细字段及公开行为矩阵见协议。
 
 ## 特性验收与恢复
 
@@ -26,7 +28,7 @@ build逐个检查src、simulator、scripts、test、acceptance内的ESM语法；
 npm run acceptance
 ```
 
-acceptance与基线回归分开。当前预览器尚不产生结构化业务关系，因此其中两项业务断言预期失败；这是新增能力，不是依赖或启动问题。请按协议增加缺件、引用冲突、修订、数据边界及进程终止恢复的测试，不能删断言、固定输出样本答案或让原始证据与规范化结果错位。
+acceptance与基线回归分开。managed.test.mjs覆盖协议验证矩阵：跨文件引用实例与内容对象分离、重复投递与重开存储后身份不膨胀、缺件期间交互变量作用域不被默认值掩盖且补件后只重解释受影响对象、round=2修订下共用材料与未知交互留存可核对、原始资料已存而关系未提交时终止进程后能从留存证据续跑。资料未齐时保留可解释未决，不为“通过”填充不存在的源值。
 
 ## 离线容器
 
